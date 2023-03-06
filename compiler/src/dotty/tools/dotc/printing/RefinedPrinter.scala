@@ -920,7 +920,7 @@ class RefinedPrinter(_ctx: Context) extends PlainPrinter(_ctx) {
                 if leftParam.nonEmpty then
                   leftTyParams ::: leadingUsing ::: leftParam ::: trailingUsing ::: rightTyParams ::: rightParam ::: rest6
                 else
-                  tree.paramss // it wasn't a binary operator, after all.
+                  leadingUsing ::: leftTyParams ::: tree.paramss ::: trailingUsing ::: rest6 // it wasn't a binary operator, after all.
               else
                 tree.paramss
             val trailingParamss = paramss
